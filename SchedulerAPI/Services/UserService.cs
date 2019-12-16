@@ -38,7 +38,7 @@ namespace SchedulerAPI.Services
         {
             
 
-            var volunteer = _volunteers.SingleOrDefault(x => x.Username == username && x.Password == password);
+            var volunteer = _volunteers.FirstOrDefault(x => x.Username == username && x.Password == password);
             
             if (volunteer == null)
             return null;

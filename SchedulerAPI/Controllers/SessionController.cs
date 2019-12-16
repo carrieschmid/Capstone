@@ -4,24 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SchedulerAPI.Models;
+using SchedulerAPI.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchedulerAPI.Controllers
 {
     // [Authorize]
    
     [ApiController]
-    [Route("api")]
+    [Route("api/[controller]")]
     public class SessionController : ControllerBase
     {
-        // private IUserService _userService;
+        private IUserService _userService;
         private SchedulerAPIContext _db;
 
         public SessionController(
-            // IUserService userService,
+            IUserService userService,
              SchedulerAPIContext db)
         {
-            // _userService = userService;
+            _userService = userService;
             _db = db;
         }
 
@@ -33,10 +36,14 @@ namespace SchedulerAPI.Controllers
             return sessions.ToList();
         }
 
+        [Authorize]
         [HttpPost]
-        public void Post([FromBody] Session session)
+        public void Post([FromBody] Session newSession)
         {
-            _db.Sessions.Add(session);
+            var identity = (ClaimsIdentity)User.Identity;
+            var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+            newSession.VolunteerId = Convert.ToInt32(foundId);
+            _db.Sessions.Add(newSession);
             _db.SaveChanges();
         }
     }

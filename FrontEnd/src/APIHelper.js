@@ -35,7 +35,7 @@ export default class ApiHelper {
   });
  }
   
- apiGetUserProjects(volunteer) {
+ apiGetVolunteerSessions(volunteer) {
   return new Promise(function (resolve, reject) {
    let url = `http://localhost:5000/api?id=${volunteer}`;    //token????
    let request = new XMLHttpRequest();
@@ -51,8 +51,7 @@ export default class ApiHelper {
   });
  }
   
- apiPostNewSessio(newSession) {
-  console.log('apiPOst new project running');
+ apiPostNewSession(newSession) {
   let url = 'http://localhost:5000/api';
   let body = JSON.stringify(newSession);
   var xhr = new XMLHttpRequest();

@@ -30,6 +30,7 @@ class App extends React.Component {
    token: null,
    visibility: false
   };
+
   this.apiHelper = new ApiHelper();
   this.handleLogin = this.handleLogin.bind(this);
   this.handleCreateAcct = this.handleCreateAcct.bind(this);
@@ -45,7 +46,7 @@ class App extends React.Component {
  }
   
  handleLogin(user) {
-  let loginPromise = this.apiHelper.apiPostNewUser(user);
+  let loginPromise = this.apiHelper.apiAttemptLogin(user);
   loginPromise.then((response) => {
    let parsedResponse = JSON.parse(response);
    console.log(parsedResponse);
@@ -88,12 +89,12 @@ class App extends React.Component {
  }
 
 
- //  toggleVisibility(){
- //   if (this.state.visibility=true){
- //     this.setState = ({ visibility: false});
- // }else{this.setState = ({visibility: true});
- // }
- //  }
+  toggleVisibility(){
+   if (this.state.visibility=true){
+     this.setState = ({ visibility: false});
+ }else{this.setState = ({visibility: true});
+ }
+  }
 
 
  handleAddingNewLesson(lesson) {
