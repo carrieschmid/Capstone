@@ -13,13 +13,16 @@ function ParticipantAdmin(props) {
 
 
  return (
-  <div>
-   {selectedSessionContent}
-   <SessionList
+  <div className="row">
+    <div className = "col col-md-8">
+    <SessionList
     sessionList={props.sessionList}
     onSessionSelection={props.onSessionSelection}
    />
-
+   </div>
+    <div className = "col col-md-4">
+   {selectedSessionContent}
+   </div>
   </div>
       
       
