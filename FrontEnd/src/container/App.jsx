@@ -26,7 +26,8 @@ class App extends React.Component {
    masterUserList:{},
    selectedSession: null,
    currentUser: '', 
-   token: null
+   token: null,
+   visibility: false
   };
   this.apiHelper = new ApiHelper();
   this.handleLogin = this.handleLogin.bind(this);
@@ -35,6 +36,7 @@ class App extends React.Component {
   this.handleChangingSelectedSession = this.handleChangingSelectedSession.bind(this);
   this.handleAddingNewLesson = this.handleAddingNewLesson.bind(this);
   this.handleAddingNewParticipant=this.handleAddingNewParticipant.bind(this);
+  this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
  }
 
  handleCreateAcct(newUser) {
@@ -55,10 +57,16 @@ class App extends React.Component {
     let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
     dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
      for (let i = 0; i < JSONresponse.length; i++)
-     {this.handleAddingNewProjectFromApi(JSONrespoonse[i]);
+     {this.handleAddingNewProjectFromApi(JSONresponse[i]);
      }
 
    });
+  }
+
+  handleAddingNewSessionToState(session){
+    let sessionId = v4();
+    let newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[sessionId]: session });
+    this.setState({masterSessionList: newMasterSessionList});
   }
   
  //  var newUserId = v4();
@@ -77,6 +85,18 @@ class App extends React.Component {
  handleChangingSelectedSession(sessionId){
   this.setState({selectedSession: sessionId});
  }
+
+
+//  toggleVisibility(sessionId){
+//   if (this.state.visibility=true){
+//     this.setState = ({
+//       visibility: false
+//     });
+// }
+// else{
+//    this.setState = ({
+//       visibility: true
+// })
 
  handleAddingNewLesson(lesson) {
   const copyMasterSessionList = cloneDeep(this.state.masterSessionList);

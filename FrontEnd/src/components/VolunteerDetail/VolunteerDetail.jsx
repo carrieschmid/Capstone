@@ -6,11 +6,16 @@ import LessonList from './../LessonList/LessonList';
 function VolunteerDetail(props) {
  let _morning = null;
  let _snack = null;
- let _afternoon = null;        
-    
- function addNewLesson(event){
+ let _afternoon = null;   
+ 
+ 
+function addNewLesson(event){
   event.preventDefault();
   props.onAddingNewLesson({morning: _morning.value, snack: _snack.value, afternoon: _afternoon.value});
+ }
+
+function handleCloseDetails(){
+  props.onSessionSelection(props.sessionId);
  }
        
 
@@ -50,7 +55,7 @@ function VolunteerDetail(props) {
     <button type='submit'>Add Lesson</button>
    </form>
 
-
+   <button onClick={props.onCloseDetails}>Close Details</button>
 
         
   </div>

@@ -24,6 +24,7 @@ function Session(props){
     <li className="list-group-item">Participants: {props.participant}</li>
  
     <button onClick={handleDetails}>See Details</button>
+    
    </ul>
   </div>;
 
