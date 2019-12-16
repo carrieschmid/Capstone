@@ -12,7 +12,9 @@ function SessionList(props) {
 //  } else {
 
  return (
-  <div>
+    <div>
+     
+ 
    {Object.keys(props.sessionList).map((sessionId) => {
     var session = props.sessionList[sessionId];
 

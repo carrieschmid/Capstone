@@ -21,16 +21,16 @@
 // //     this.setState({detailsVisible: true});
 // // }
 
-//  render(){
-//   let currentlyVisibleContent = null;
-//   if (this.state.formVisibleOnPage){
-//    currentlyVisibleContent = <VolunteerAdmin onSessionSubmit={this.handleAddingNewSession} 
-//    sessionList={this.state.masterSessionList}
-//    selectedSession={this.state.selectedSession}
-//    onSessionSelection={this.handleChangingSelectedSession}
-//    onAddingNewLesson={this.handleAddingNewLesson} />;
+ render(){
+  let currentlyVisibleContent = null;
+  if (this.state.formVisibleOnPage){
+   currentlyVisibleContent = <VolunteerAdmin onSessionSubmit={this.handleAddingNewSession} 
+   sessionList={this.state.masterSessionList}
+   selectedSession={this.state.selectedSession}
+   onSessionSelection={this.handleChangingSelectedSession}
+   onAddingNewLesson={this.handleAddingNewLesson} />;
 //   } else {
-//    currentlyVisibleContent = <ParticipantAdmin sessionList={this.state.masterSessionList}
+//    onClick = <ParticipantAdmin sessionList={this.state.masterSessionList}
 //    selectedSession={this.state.selectedSession}
 //    onSessionSelection={this.handleChangingSelectedSession}
 //    onAddingNewParticipant= {this.handleAddingNewParticipant} />;

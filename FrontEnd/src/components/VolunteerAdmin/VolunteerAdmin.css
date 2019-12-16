@@ -1,0 +1,14 @@
+.AdminWrapper {
+    margin: 20;
+    padding: 20;
+    background-color: green;
+}
+
+.FormWrapper{
+    padding: 40px;
+    margin: 20;
+    align-content: center;
+    margin-left: 40px;
+    background-color: red;
+    
+}

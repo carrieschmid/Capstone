@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 } from 'uuid';
 import LessonList from './../LessonList/LessonList';
+import './VolunteerDetail.css';
 // import {Redirect} from 'react-router-dom';
 
 function VolunteerDetail(props) {
@@ -25,10 +26,12 @@ function handleCloseDetails(){
 
  return (
   <div>
+  <div className= "VolunteerDetail">
    <h1>{props.selectedSession.name}</h1>
    <p>Description: {props.selectedSession.description}</p>
    <p>Dates:{props.selectedSession.dates}</p>
    <p>Openings:{props.selectedSession.openings}</p>
+   </div>
    <LessonList lessonList={props.selectedSession.lessons}/>
    <form onSubmit={addNewLesson}>
     <div className='input-field'>
@@ -55,7 +58,7 @@ function handleCloseDetails(){
     <button type='submit'>Add Lesson</button>
    </form>
 
-   <button onClick={props.onCloseDetails}>Close Details</button>
+   <button onClick={props.onCloseDetails}>Close Lesson</button>
 
         
   </div>

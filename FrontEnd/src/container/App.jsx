@@ -11,6 +11,7 @@ import LoginForm from './../components/LoginForm/LoginForm';
 import VolunteerAdmin from './../components/VolunteerAdmin/VolunteerAdmin';
 import ParticipantAdmin from './../components/ParticipantAdmin/ParticipantAdmin';
 import AddAcct from './../components/AddAcct/AddAcct';
+// import Card from './../elements/Card/Card';
 
 
 // import Footer from '../../components/Footer/Footer';
@@ -50,24 +51,24 @@ class App extends React.Component {
    console.log(parsedResponse);
    this.setState({currentUser: parsedResponse.userId});
    this.setState({token: parsedResponse.token});      
-  }).then(() => {this.getSessionList()});  
+  }).then(() => {this.getSessionList();});  
  }
 
-  getSessionList(){
-    let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
-    dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
-     for (let i = 0; i < JSONresponse.length; i++)
-     {this.handleAddingNewProjectFromApi(JSONresponse[i]);
-     }
+ getSessionList(){
+  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
+  dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+   for (let i = 0; i < JSONresponse.length; i++)
+   {this.handleAddingNewProjectFromApi(JSONresponse[i]);
+   }
 
-   });
-  }
+  });
+ }
 
-  handleAddingNewSessionToState(session){
-    let sessionId = v4();
-    let newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[sessionId]: session });
-    this.setState({masterSessionList: newMasterSessionList});
-  }
+ handleAddingNewSessionToState(session){
+  let sessionId = v4();
+  let newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[sessionId]: session });
+  this.setState({masterSessionList: newMasterSessionList});
+ }
   
  //  var newUserId = v4();
  //  var newMasterUserList = Object.assign({}, this.state.masterUserList,
@@ -87,16 +88,13 @@ class App extends React.Component {
  }
 
 
-//  toggleVisibility(sessionId){
-//   if (this.state.visibility=true){
-//     this.setState = ({
-//       visibility: false
-//     });
-// }
-// else{
-//    this.setState = ({
-//       visibility: true
-// })
+ //  toggleVisibility(){
+ //   if (this.state.visibility=true){
+ //     this.setState = ({ visibility: false});
+ // }else{this.setState = ({visibility: true});
+ // }
+ //  }
+
 
  handleAddingNewLesson(lesson) {
   const copyMasterSessionList = cloneDeep(this.state.masterSessionList);
@@ -115,6 +113,9 @@ class App extends React.Component {
   
 
  render() {
+
+
+  
   return(
    <div className='AppWrapper' >  
     <Header /> 

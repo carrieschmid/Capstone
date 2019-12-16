@@ -32,7 +32,8 @@ function SessionForm (props){
   <div>
       
      
-   <form onSubmit={handleSessionSubmit}>
+   <form className="form-group" onSubmit={handleSessionSubmit}>
+   <h4>New Session Form</h4> 
     <div className='input-field'>
      <input
       id='name'
