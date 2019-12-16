@@ -29,16 +29,16 @@ namespace SchedulerAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Session>> GetAll(int id)
+        public ActionResult<List<Session>> GetSessions(int id)
         {
             
             var sessions = _db.Sessions.Where(p=>p.VolunteerId == id).Include(l=>l.Lessons);
             return sessions.ToList();
         }
 
-        [Authorize]
-        [HttpPost]
-        public void Post([FromBody] Session newSession)
+        // [Authorize]
+        [HttpPost ("post-session")]
+        public void PostSessions([FromBody] Session newSession)
         {
             var identity = (ClaimsIdentity)User.Identity;
             var foundId = identity.FindFirst(ClaimTypes.Name).Value;

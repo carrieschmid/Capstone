@@ -38,7 +38,7 @@ class App extends React.Component {
   this.handleChangingSelectedSession = this.handleChangingSelectedSession.bind(this);
   this.handleAddingNewLesson = this.handleAddingNewLesson.bind(this);
   this.handleAddingNewParticipant=this.handleAddingNewParticipant.bind(this);
-  this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
+  // this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
  }
 
  handleCreateAcct(newUser) {
@@ -52,49 +52,56 @@ class App extends React.Component {
    console.log(parsedResponse);
    this.setState({currentUser: parsedResponse.userId});
    this.setState({token: parsedResponse.token});      
-  }).then(() => {this.getSessionList();});  
- }
-
- getSessionList(){
-  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
-  dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
-   for (let i = 0; i < JSONresponse.length; i++)
-   {this.handleAddingNewProjectFromApi(JSONresponse[i]);
-   }
-
   });
+  
+  // .then(() => {this.getSessionList();});  
  }
 
- handleAddingNewSessionToState(session){
-  let sessionId = v4();
-  let newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[sessionId]: session });
-  this.setState({masterSessionList: newMasterSessionList});
- }
-  
- //  var newUserId = v4();
- //  var newMasterUserList = Object.assign({}, this.state.masterUserList,
- //   {[newUserId]: newUser});
- //  this.setState({masterUserList:newMasterUserList});  
-  
  handleAddingNewSession(newSession) {
   var newSessionId = v4();
   var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[newSessionId]: newSession});
-  this.setState({ masterSessionList: newMasterSessionList });
-  // this.apiPostNewProject(newProject); 
-  console.log(newMasterSessionList);
+  let sessionPromise = this.apiHelper.apiPostNewSession(newSession);
+  sessionPromise.then((response) => {
+    let parsedResponse = JSON.parse(response);
+    console.log(parsedResponse);
+    this.setState({ masterSessionList: parsedResponse.newMasterSessionList });
+     // this.apiPostNewSession(newSession); 
+    console.log(newMasterSessionList);
+
+  })
+  
+ 
  }
 
+ //  handleAddingNewSessionToState(session){
+ //   let sessionId = v4();
+ //   let newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[sessionId]: session });
+ //   this.setState({masterSessionList: newMasterSessionList});
+ //  }
+
+ //  getSessionList(){
+ //   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
+ //   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+ //    for (let i = 0; i < JSONresponse.length; i++)
+ //    {this.handleAddingNewProjectFromApi(JSONresponse[i]);
+ //    }
+
+ //   });
+ //  }
+
+ ////////////////////////////////////
+  
  handleChangingSelectedSession(sessionId){
   this.setState({selectedSession: sessionId});
  }
 
 
-  toggleVisibility(){
-   if (this.state.visibility=true){
-     this.setState = ({ visibility: false});
- }else{this.setState = ({visibility: true});
- }
-  }
+//  toggleVisibility(){
+//   if (this.state.visibility=true){
+//    this.setState = ({ visibility: false});
+//   }else{this.setState = ({visibility: true});
+//   }
+//  }
 
 
  handleAddingNewLesson(lesson) {

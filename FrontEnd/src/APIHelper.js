@@ -34,7 +34,21 @@ export default class ApiHelper {
    request.send(body);
   });
  }
-  
+
+ apiPostNewSession(newSession) {
+    let url = 'http://localhost:5000/api/Session/post-session';
+    let body = JSON.stringify(newSession);
+    var request = new XMLHttpRequest();
+    request.open('POST', url, true);
+    request.setRequestHeader('Content-Type', 'application/JSON');
+    request.onreadystatechange = function () { // Call a function when the state changes.
+     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      // Request finished. Do processing here.
+     }
+    };
+    request.send(body);
+   }
+    
  apiGetVolunteerSessions(volunteer) {
   return new Promise(function (resolve, reject) {
    let url = `http://localhost:5000/api?id=${volunteer}`;    //token????
@@ -51,19 +65,6 @@ export default class ApiHelper {
   });
  }
   
- apiPostNewSession(newSession) {
-  let url = 'http://localhost:5000/api';
-  let body = JSON.stringify(newSession);
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('Content-Type', 'application/JSON');
-  xhr.onreadystatechange = function () { // Call a function when the state changes.
-   if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-    // Request finished. Do processing here.
-   }
-  };
-  xhr.send(body);
- }
-  
+
   
 }
