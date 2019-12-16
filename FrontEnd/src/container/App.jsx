@@ -41,6 +41,16 @@ class App extends React.Component {
   // this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
  }
 
+ handleAddingNewSession(newSession) {
+  var newSessionId = v4();
+  var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[newSessionId]: newSession});
+  this.setState({ masterSessionList: newMasterSessionList });
+  this.apiPostNewSession(newSession); 
+  console.log(newMasterSessionList);
+
+  }
+
+
  handleCreateAcct(newUser) {
   this.apiHelper.apiPostNewUser(newUser);
  }
@@ -52,26 +62,24 @@ class App extends React.Component {
    console.log(parsedResponse);
    this.setState({currentUser: parsedResponse.userId});
    this.setState({token: parsedResponse.token});      
-  });
-  
-  // .then(() => {this.getSessionList();});  
+  }).then(() => {this.getSessionList();});  
  }
 
- handleAddingNewSession(newSession) {
-  var newSessionId = v4();
-  var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[newSessionId]: newSession});
-  let sessionPromise = this.apiHelper.apiPostNewSession(newSession);
-  sessionPromise.then((response) => {
-    let parsedResponse = JSON.parse(response);
-    console.log(parsedResponse);
-    this.setState({ masterSessionList: parsedResponse.newMasterSessionList });
-     // this.apiPostNewSession(newSession); 
-    console.log(newMasterSessionList);
+//  getSessionList(){
+//   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
+//   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+//    for (let i = 0; i < JSONresponse.length; i++){
+//    this.handleAddingNewProjectFromApi(JSONresponse[i]);
+  
+//   }
+// });
+// }
+  handleAddingNewProjectFromApi(newProject) {
 
-  })
+  }
   
  
- }
+ 
 
  //  handleAddingNewSessionToState(session){
  //   let sessionId = v4();
@@ -79,12 +87,7 @@ class App extends React.Component {
  //   this.setState({masterSessionList: newMasterSessionList});
  //  }
 
- //  getSessionList(){
- //   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
- //   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
- //    for (let i = 0; i < JSONresponse.length; i++)
- //    {this.handleAddingNewProjectFromApi(JSONresponse[i]);
- //    }
+
 
  //   });
  //  }
@@ -119,6 +122,7 @@ class App extends React.Component {
   console.log(copyMasterSessionList); 
  }
   
+
 
  render() {
 
