@@ -58,7 +58,7 @@ function handleCloseDetails(){
     <button type='submit'>Add Lesson</button>
    </form>
 
-   <button onClick={props.onCloseDetails}>Close Lesson</button>
+   
 
         
   </div>

@@ -12,6 +12,10 @@ function Session(props){
   props.onSessionSelection(props.sessionId);
  }
 
+ function closeDetails(){
+     props.onCloseDetails();
+ }
+
  const sessionInformation =
   <div>  
    <h5> {props.name}</h5>
@@ -24,7 +28,7 @@ function Session(props){
     <li className="list-group-item">Participants: {props.participant}</li> */}
  
     <button onClick={handleDetails}>See Details</button>
-    <button onClick={props.onCloseDetails}>Close Details</button>
+    <button onClick={closeDetails}>Close Details</button>
 
     
    </ul>

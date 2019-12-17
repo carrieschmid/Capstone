@@ -29,6 +29,7 @@ function VolunteerAdmin(props) {
         <SessionList
           sessionList={props.sessionList}
           onSessionSelection={props.onSessionSelection}
+          onCloseDetails={props.onCloseDetails}
           //  currentRouterPath={props.currentRouterPath}
         />
       </div>

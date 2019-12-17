@@ -104,6 +104,9 @@ class App extends React.Component {
   this.setState({selectedSession: sessionId});
  }
 
+ handleClosingDetails(){
+   this.setState({selectedSession: null});
+ }
 
 //  toggleVisibility(){
 //   if (this.state.visibility=true){
@@ -153,6 +156,7 @@ class App extends React.Component {
         sessionList={this.state.masterSessionList}
         selectedSession={this.state.selectedSession}
         onSessionSelection={this.handleChangingSelectedSession}
+        onCloseDetails={this.handleClosingDetails}
         onAddingNewLesson={this.handleAddingNewLesson}
         // currentRouterPath={props.location.pathname}
       
