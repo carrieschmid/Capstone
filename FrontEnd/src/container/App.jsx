@@ -45,7 +45,7 @@ class App extends React.Component {
   var newSessionId = v4();
   var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {[newSessionId]: newSession});
   this.setState({ masterSessionList: newMasterSessionList });
-  this.apiPostNewSession(newSession); 
+  this.apiHelper.apiPostNewSession(newSession); 
   console.log(newMasterSessionList);
 
   }
@@ -60,9 +60,11 @@ class App extends React.Component {
   loginPromise.then((response) => {
    let parsedResponse = JSON.parse(response);
    console.log(parsedResponse);
-   this.setState({currentUser: parsedResponse.userId});
-   this.setState({token: parsedResponse.token});      
-  }).then(() => {this.getSessionList();});  
+   this.setState({currentUser: parsedResponse.volunteerId});
+   this.setState({token: parsedResponse.token}); 
+   console.log({currentUser: parsedResponse.volunteerId});     
+  })
+  // .then(() => {this.getSessionList();});  
  }
 
  getSessionList(){
