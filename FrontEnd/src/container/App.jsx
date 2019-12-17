@@ -65,17 +65,23 @@ class App extends React.Component {
   }).then(() => {this.getSessionList();});  
  }
 
-//  getSessionList(){
-//   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
-//   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
-//    for (let i = 0; i < JSONresponse.length; i++){
-//    this.handleAddingNewProjectFromApi(JSONresponse[i]);
+ getSessionList(){
+  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
+  dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+   for (let i = 0; i < JSONresponse.length; i++){
+   this.handleAddingNewProjectFromApi(JSONresponse[i]);
   
-//   }
-// });
-// }
+  }
+});
+}
   handleAddingNewProjectFromApi(newProject) {
-
+  //  var newProjectId = v4();
+  //   var newMasterProjectList = Object.assign({}, this.state.masterProjectList, {
+  //     [newProjectId]: newProject
+  //   });
+  //   this.setState({ masterProjectList: newMasterProjectList });
+  //   // this.apiPostNewProject(newProject); 
+  //   console.log('--------', newProject);
   }
   
  

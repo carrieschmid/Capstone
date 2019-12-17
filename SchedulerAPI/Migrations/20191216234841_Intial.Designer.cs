@@ -9,8 +9,8 @@ using SchedulerAPI.Models;
 namespace SchedulerAPI.Migrations
 {
     [DbContext(typeof(SchedulerAPIContext))]
-    [Migration("20191215225139_Intiail")]
-    partial class Intiail
+    [Migration("20191216234841_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
