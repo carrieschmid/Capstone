@@ -38,6 +38,11 @@ namespace SchedulerAPI.Controllers
 
         // [Authorize]
         [HttpPost ("post-session")]
+        // public void PostSessions([FromBody] Session session)
+        // {
+        //     _db.Sessions.Add(session);
+        //     _db.SaveChanges();
+        // }
         public void PostSessions([FromBody] Session newSession)
         {
             var identity = (ClaimsIdentity)User.Identity;

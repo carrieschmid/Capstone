@@ -21,7 +21,7 @@ function SessionForm (props){
   _name.value = '';
   _description.value = '';
   _location.value = '';
-  _dates.values = '';
+  _dates.value = '';
   _openings.value = '';
   
     

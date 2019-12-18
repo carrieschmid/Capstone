@@ -39,8 +39,10 @@ export default class ApiHelper {
     console.log('new session running');
     let url = 'http://localhost:5000/api/Session/post-session';
     let body = JSON.stringify(newSession);
+    console.log(body);
     var request = new XMLHttpRequest();
     request.open('POST', url, true);
+    console.log(request);
     request.setRequestHeader('Content-Type', 'application/JSON');
     request.onreadystatechange = function () { // Call a function when the state changes.
      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -48,6 +50,7 @@ export default class ApiHelper {
      }
     };
     request.send(body);
+    
    }
 
    
