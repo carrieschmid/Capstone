@@ -1,6 +1,7 @@
 import React from 'react';
 
 // import './App.css';
+// import'./openhouse.jpg';
 import { Switch, Route } from 'react-router-dom';
 // import Card from './../elements/Card/Card';
 import Header from './../components/Header/Header';
@@ -11,6 +12,7 @@ import LoginForm from './../components/LoginForm/LoginForm';
 import VolunteerAdmin from './../components/VolunteerAdmin/VolunteerAdmin';
 import ParticipantAdmin from './../components/ParticipantAdmin/ParticipantAdmin';
 import AddAcct from './../components/AddAcct/AddAcct';
+
 
 // import Card from './../elements/Card/Card';
 

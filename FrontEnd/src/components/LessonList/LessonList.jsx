@@ -7,6 +7,7 @@ function LessonList(props) {
   <div>
    {props.lessonList.map((thisLesson, index) =>
     <Lesson 
+    date={thisLesson.date}
      morning={thisLesson.morning}
      snack={thisLesson.snack}
      afternoon={thisLesson.afternoon}
