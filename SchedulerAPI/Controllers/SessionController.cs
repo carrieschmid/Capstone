@@ -51,7 +51,7 @@ namespace SchedulerAPI.Controllers
             // var foundId = identity.FindFirst(ClaimTypes.Email).Value;
             
             // Console.WriteLine(ClaimTypes.Email);
-            newSession.VolunteerId = 4;
+            newSession.VolunteerId = 5;
             
             // Convert.ToInt32(foundId);
             _db.Sessions.Add(newSession);

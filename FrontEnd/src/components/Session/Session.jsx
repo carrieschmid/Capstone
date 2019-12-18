@@ -13,11 +13,11 @@ function Session(props){
  }
 
  function closeDetails(){
-     props.onCloseDetails();
+     props.onCloseDetails(props.sessionId);
  }
 
  const sessionInformation =
-  <div>  
+  <div className= "jumbotron">  
    <h5> {props.name}</h5>
    <ul>
     <li className="list-group-item">Description: {props.description}</li>

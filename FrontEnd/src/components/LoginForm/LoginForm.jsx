@@ -34,7 +34,7 @@ function LoginForm(props) {
     <div className='input-field'>
      <input
       type='password'
-      placeholder='hello'
+      placeholder='Password'
       ref={(input) => { _password = input; }}
      />
     </div>

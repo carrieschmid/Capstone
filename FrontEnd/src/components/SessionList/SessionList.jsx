@@ -12,7 +12,7 @@ function SessionList(props) {
 //  } else {
 
  return (
-    <div>
+    <div className="jumbotron">
      
  
    {Object.keys(props.sessionList).map((sessionId) => {
@@ -28,6 +28,7 @@ function SessionList(props) {
      lesson={session.lesson} 
      participant= {session.participant}
      onSessionSelection={props.onSessionSelection} 
+     onCloseDetails={props.onCloseDetails}
     />;
    })}
   </div>

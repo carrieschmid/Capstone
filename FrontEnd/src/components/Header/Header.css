@@ -1,5 +1,11 @@
-.Header {
-    margin: 0;
-    padding: 0;
-    background-color:green;
+.Nav {
+    padding: 10px;
+    background-color: #eee;
+    text-align: right
+}
+
+.Header{
+    background-color:#eee;
+    padding: 10px;
+    margin-bottom: 50px;
 }

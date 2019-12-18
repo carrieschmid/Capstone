@@ -16,8 +16,6 @@ function VolunteerAdmin(props) {
 
  return (
   <div className= "container">
-   <h2>Volunteer Admin</h2>
-  
    <div className = "row">  
       <SessionForm className= "FormWrapper" onSessionSubmit={props.onSessionSubmit}
         onSessionSelection={props.onSessionSelection}/>

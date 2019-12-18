@@ -40,6 +40,7 @@ class App extends React.Component {
   this.handleChangingSelectedSession = this.handleChangingSelectedSession.bind(this);
   this.handleAddingNewLesson = this.handleAddingNewLesson.bind(this);
   this.handleAddingNewParticipant=this.handleAddingNewParticipant.bind(this);
+  this.handleClosingDetails= this.handleClosingDetails.bind(this);
   // this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
  }
 

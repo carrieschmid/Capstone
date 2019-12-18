@@ -56,7 +56,7 @@ export default class ApiHelper {
    
    apiGetVolunteerSessions(volunteer) {
     return new Promise(function (resolve, reject) {
-     let url = `http://localhost:5000/api/Session/get-session?id=4`;  
+     let url = `http://localhost:5000/api/Session/get-session?id=${volunteer}`;  
      let request = new XMLHttpRequest();
      console.log(request);
      request.onload = function () {
