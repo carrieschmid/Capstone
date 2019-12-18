@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './App.css';
+// import './App.css';
 import { Switch, Route } from 'react-router-dom';
 // import Card from './../elements/Card/Card';
 import Header from './../components/Header/Header';
@@ -11,6 +11,7 @@ import LoginForm from './../components/LoginForm/LoginForm';
 import VolunteerAdmin from './../components/VolunteerAdmin/VolunteerAdmin';
 import ParticipantAdmin from './../components/ParticipantAdmin/ParticipantAdmin';
 import AddAcct from './../components/AddAcct/AddAcct';
+
 // import Card from './../elements/Card/Card';
 
 
@@ -28,7 +29,8 @@ class App extends React.Component {
    selectedSession: null,
    currentUser: '', 
    token: null,
-   visibility: false
+   visibility: false,
+  //  redirect: false
   };
 
   this.apiHelper = new ApiHelper();
@@ -61,29 +63,38 @@ class App extends React.Component {
    let parsedResponse = JSON.parse(response);
    console.log(parsedResponse);
    this.setState({currentUser: parsedResponse.volunteerId});
-   this.setState({token: parsedResponse.token}); 
+  //  this.setState({token: parsedResponse.token}); 
    console.log({currentUser: parsedResponse.volunteerId});     
   })
-  // .then(() => {this.getSessionList();});  
+  .then(() => {this.getSessionList();});  
+  // console.log(this.getSessionList());
  }
 
  getSessionList(){
-  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser, this.state.token);
+  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser);
+  console.log(this.state.currentUser)
+    // this.state.token
   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+    
    for (let i = 0; i < JSONresponse.length; i++){
-   this.handleAddingNewProjectFromApi(JSONresponse[i]);
-  
+   this.handleAddingNewSessionFromApi(JSONresponse[i]);
+   console.log(JSONresponse[i])
   }
+  // 
+  
+  
 });
 }
-  handleAddingNewProjectFromApi(newProject) {
-  //  var newProjectId = v4();
-  //   var newMasterProjectList = Object.assign({}, this.state.masterProjectList, {
-  //     [newProjectId]: newProject
-  //   });
-  //   this.setState({ masterProjectList: newMasterProjectList });
-  //   // this.apiPostNewProject(newProject); 
-  //   console.log('--------', newProject);
+  handleAddingNewSessionFromApi(newSession) {
+   var sessionId = v4();
+    var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {
+      [sessionId]: newSession
+    });
+    this.setState({ masterSessionList: newMasterSessionList });
+    // this.apiPostNewProject(newProject); 
+    console.log('--------', newSession);
+    
+    
   }
   
  

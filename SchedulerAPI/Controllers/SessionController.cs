@@ -28,13 +28,13 @@ namespace SchedulerAPI.Controllers
             _db = db;
         }
 
-        // [HttpGet]
-        // public ActionResult<List<Session>> GetSessions(int id)
-        // {
+        [HttpGet("get-session")]
+        public ActionResult<List<Session>> GetSessions(int id)
+        {
             
-        //     var sessions = _db.Sessions.Where(p=>p.VolunteerId == id).Include(l=>l.Lessons);
-        //     return sessions.ToList();
-        // }
+            var sessions = _db.Sessions.Where(p=>p.VolunteerId == id).Include(l=>l.Lessons);
+            return sessions.ToList();
+        }
 
         // [Authorize]
         [HttpPost ("post-session")]

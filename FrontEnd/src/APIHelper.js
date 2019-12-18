@@ -56,8 +56,9 @@ export default class ApiHelper {
    
    apiGetVolunteerSessions(volunteer) {
     return new Promise(function (resolve, reject) {
-     let url = `http://localhost:5000/api?id=${volunteer}`;  
+     let url = `http://localhost:5000/api/Session/get-session?id=4`;  
      let request = new XMLHttpRequest();
+     console.log(request);
      request.onload = function () {
       if (this.status === 200) {
        resolve(request.response);
@@ -65,6 +66,7 @@ export default class ApiHelper {
        reject(Error(request.statusText));
       }
      };
+     console.log(request);
      request.open('GET', url, true);
      request.send();
     });

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 function LoginForm(props) {
 
  let _email = null;
@@ -14,16 +15,14 @@ function LoginForm(props) {
   _password = '';
  }
 
- var loginBtn = {
-  textAlign: 'center',
-  marginTop: '20px'
- };
- var loginBtnStyle = {
-  backgroundColor: 'blue',
- };
+
+//  var loginBtnStyle = {
+//   backgroundColor: 'blue',
+//  };
 
  return (
   <div>
+  
    <form onSubmit={handleLogin}>
     <div className='input-field'>
      <input
@@ -39,8 +38,8 @@ function LoginForm(props) {
       ref={(input) => { _password = input; }}
      />
     </div>
-    <div style={loginBtn}>
-     <button type='submit' style={loginBtnStyle}>Log in</button>
+    <div>
+     <button type='submit'>Log in</button>
     </div>
    </form>
   </div>
