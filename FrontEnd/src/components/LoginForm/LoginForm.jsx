@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 function LoginForm(props) {
 
- let _username = null;
+ let _email = null;
  let _password = null;
 
  function handleLogin(event) {
   console.log('handle login running');
   event.preventDefault();
-  props.onLogin({ Username: _username.value, Password: _password.value });
-  _username = '';
+  props.onLogin({ Email: _email.value, Password: _password.value });
+  _email = '';
   _password = '';
  }
 
@@ -28,14 +28,14 @@ function LoginForm(props) {
     <div className='input-field'>
      <input
       type='text'
-      placeholder='User ID'
-      ref={(input) => { _username = input; }}
+      placeholder='Email'
+      ref={(input) => { _email = input; }}
      />
     </div>
     <div className='input-field'>
      <input
       type='password'
-      placeholder='Password'
+      placeholder='hello'
       ref={(input) => { _password = input; }}
      />
     </div>

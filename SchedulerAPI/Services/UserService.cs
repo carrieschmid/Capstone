@@ -38,7 +38,7 @@ namespace SchedulerAPI.Services
         {
             
 
-            var volunteer = _volunteers.FirstOrDefault(x => x.Username == username && x.Password == password);
+            var volunteer = _volunteers.FirstOrDefault(x => x.Email == username && x.Password == password);
             
             if (volunteer == null)
             return null;
@@ -51,7 +51,7 @@ namespace SchedulerAPI.Services
             {
                 Subject = new ClaimsIdentity(new Claim[] 
                 {
-                    new Claim(ClaimTypes.Name, volunteer.VolunteerId.ToString())
+                    new Claim(ClaimTypes.Email, volunteer.VolunteerId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

@@ -28,13 +28,13 @@ namespace SchedulerAPI.Controllers
             _db = db;
         }
 
-        [HttpGet]
-        public ActionResult<List<Session>> GetSessions(int id)
-        {
+        // [HttpGet]
+        // public ActionResult<List<Session>> GetSessions(int id)
+        // {
             
-            var sessions = _db.Sessions.Where(p=>p.VolunteerId == id).Include(l=>l.Lessons);
-            return sessions.ToList();
-        }
+        //     var sessions = _db.Sessions.Where(p=>p.VolunteerId == id).Include(l=>l.Lessons);
+        //     return sessions.ToList();
+        // }
 
         // [Authorize]
         [HttpPost ("post-session")]
@@ -45,9 +45,15 @@ namespace SchedulerAPI.Controllers
         // }
         public void PostSessions([FromBody] Session newSession)
         {
-            var identity = (ClaimsIdentity)User.Identity;
-            var foundId = identity.FindFirst(ClaimTypes.Name).Value;
-            newSession.VolunteerId = Convert.ToInt32(foundId);
+            // var identity = (ClaimsIdentity)User.Identity;
+            // Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            // Console.WriteLine(ClaimTypes.Email);
+            // var foundId = identity.FindFirst(ClaimTypes.Email).Value;
+            
+            // Console.WriteLine(ClaimTypes.Email);
+            newSession.VolunteerId = 4;
+            
+            // Convert.ToInt32(foundId);
             _db.Sessions.Add(newSession);
             _db.SaveChanges();
         }

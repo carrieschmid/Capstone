@@ -31,9 +31,9 @@ namespace SchedulerAPI.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]Volunteer user)
         {
-            Console.WriteLine(user.Username);
+            Console.WriteLine(user.Email);
             Console.WriteLine(user.Password);
-            var volunteer = _userService.Authenticate(user.Username, user.Password);
+            var volunteer = _userService.Authenticate(user.Email, user.Password);
             System.Console.WriteLine("user logged in");
 
             if (volunteer == null)
@@ -56,7 +56,7 @@ namespace SchedulerAPI.Controllers
     public ActionResult<Volunteer> GetVolunteerSessions()
     {
       var identity = (ClaimsIdentity)User.Identity;
-      var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+      var foundId = identity.FindFirst(ClaimTypes.Email).Value;
       Volunteer foundVolunteer = _db.Volunteers.Include(u => u.Sessions).ThenInclude(u => u.Lessons).FirstOrDefault(u => u.VolunteerId == Convert.ToInt32(foundId));
       return foundVolunteer;
     }

@@ -4,13 +4,13 @@ import React from 'react';
 
 function AddAcct(props) {
 
- let _username = null;
+ let _email = null;
  let _password = null;
 
  function handleCreateAcct(event){
   event.preventDefault();
-  props.onCreateAcct({Username: _username.value, Password: _password.value});
-  _username = '';
+  props.onCreateAcct({Email: _email.value, Password: _password.value});
+  _email = '';
   _password = '';
  }
 
@@ -21,8 +21,8 @@ function AddAcct(props) {
     <div className='input-field'>
      <input
       type='text'
-      placeholder='User ID'
-      ref={(input) => { _username = input; }}
+      placeholder='Email'
+      ref={(input) => { _email = input; }}
      />
     </div>
     <div className='input-field'>
