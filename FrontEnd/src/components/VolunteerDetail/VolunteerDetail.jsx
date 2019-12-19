@@ -22,6 +22,7 @@ function handleCloseDetails(){
        
 
 
+
  //  if(props.selectedSession){
  //   let session = props.sessionList[props.selectedSession]; 
 

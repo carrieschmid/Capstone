@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Lesson(props){
+  
     
  return(
   <div>
@@ -8,10 +9,11 @@ function Lesson(props){
    <p>Morning: {props.morning}</p> 
    <p>Snack: {props.snack}</p>
    <p>Afternoon: {props.afternoon}</p>
-   <button onClick={props.onCloseDetails}>Close Lesson</button>
+   <p>_______________________</p>
   </div>  
   
  );
-}
+ }
+
 
 export default Lesson;
