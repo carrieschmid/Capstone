@@ -12,7 +12,7 @@ function SessionList(props) {
 //  } else {
 
  return (
-    <div className="jumbotron">
+    <div>
      
  
    {Object.keys(props.sessionList).map((sessionId) => {

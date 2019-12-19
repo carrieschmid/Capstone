@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
+// import openhouse from '../assets/images/openhouse.jpg';
 import App from './container/App';
 import { AppContainer } from 'react-hot-loader';
 import { HashRouter } from 'react-router-dom';

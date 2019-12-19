@@ -154,7 +154,7 @@ class App extends React.Component {
 
   
   return(
-   <div className='AppWrapper' >  
+   <div >  
     <Header /> 
     <div className='container'>
      <Switch>
@@ -183,7 +183,7 @@ class App extends React.Component {
      </Switch>
     </div>
         
-    {/* <Footer /> */}
+
    </div>
 
 
