@@ -53,7 +53,7 @@ class App extends React.Component {
   this.apiHelper.apiPostNewSession(newSession); 
   console.log(newMasterSessionList);
 
-  }
+ }
 
 
  handleCreateAcct(newUser) {
@@ -66,39 +66,39 @@ class App extends React.Component {
    let parsedResponse = JSON.parse(response);
    console.log(parsedResponse);
    this.setState({currentUser: parsedResponse.volunteerId});
-  //  this.setState({token: parsedResponse.token}); 
+   //  this.setState({token: parsedResponse.token}); 
    console.log({currentUser: parsedResponse.volunteerId});     
   })
-  .then(() => {this.getSessionList();});  
+   .then(() => {this.getSessionList();});  
   // console.log(this.getSessionList());
  }
 
  getSessionList(){
   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser);
-  console.log(this.state.currentUser)
-    // this.state.token
+  console.log(this.state.currentUser);
+  // this.state.token
   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
     
    for (let i = 0; i < JSONresponse.length; i++){
-   this.handleAddingNewSessionFromApi(JSONresponse[i]);
-   console.log(JSONresponse[i])
-  }
+    this.handleAddingNewSessionFromApi(JSONresponse[i]);
+    console.log(JSONresponse[i]);
+   }
   // 
   
   
-});
-}
-  handleAddingNewSessionFromApi(newSession) {
-   var sessionId = v4();
-    var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {
-      [sessionId]: newSession
-    });
-    this.setState({ masterSessionList: newMasterSessionList });
-    // this.apiPostNewProject(newProject); 
-    console.log('--------', newSession);
+  });
+ }
+ handleAddingNewSessionFromApi(newSession) {
+  var sessionId = v4();
+  var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {
+   [sessionId]: newSession
+  });
+  this.setState({ masterSessionList: newMasterSessionList });
+  // this.apiPostNewProject(newProject); 
+  console.log('--------', newSession);
     
     
-  }
+ }
   
  
  
@@ -121,15 +121,15 @@ class App extends React.Component {
  }
 
  handleClosingDetails(){
-   this.setState({selectedSession: null});
+  this.setState({selectedSession: null});
  }
 
-//  toggleVisibility(){
-//   if (this.state.visibility=true){
-//    this.setState = ({ visibility: false});
-//   }else{this.setState = ({visibility: true});
-//   }
-//  }
+ //  toggleVisibility(){
+ //   if (this.state.visibility=true){
+ //    this.setState = ({ visibility: false});
+ //   }else{this.setState = ({visibility: true});
+ //   }
+ //  }
 
 
  handleAddingNewLesson(lesson) {

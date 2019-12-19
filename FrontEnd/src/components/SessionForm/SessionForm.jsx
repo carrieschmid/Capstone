@@ -38,14 +38,14 @@ function SessionForm (props){
      <input
       id='name'
       type='text'
-      placeholder='Name'
+      placeholder='Dates'
       ref={(input) => {_name = input; }} />
     </div>
     <div className='input-field'>
      <input
       id='description'
       type='text'
-      placeholder='Description'
+      placeholder='Name'
       ref={(input) => {_description = input; }} />
     </div>
     <div className='input-field'>
@@ -55,13 +55,13 @@ function SessionForm (props){
       placeholder='Location'
       ref={(input) => {_location = input; }} />
     </div>
-    <div className='input-field'>
+    {/* <div className='input-field'>
      <input
       id='dates'
       type='text'
       placeholder='Dates'
       ref={(input) => {_dates = input; }} />
-    </div>
+    </div> */}
     <div className='input-field'>
      <input
       id='openings'

@@ -21,7 +21,7 @@ function SessionList(props) {
     return <Session name={session.name}
      description={session.description}
      location={session.location}
-     dates={session.dates}
+   //   dates={session.dates}
      openings={session.openings}
      key={sessionId}
      sessionId={sessionId}

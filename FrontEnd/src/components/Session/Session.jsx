@@ -20,10 +20,10 @@ function Session(props){
   <div className= "jumbotron">  
    <h4> {props.name}</h4>
    <ul>
-    <li className="list-group-item">Description: {props.description}</li>
+    <li className="list-group-item">Name: {props.description}</li>
     <li className="list-group-item">Location: {props.location}</li>
     <li className="list-group-item">Openings: {props.openings}</li>
-    <li className="list-group-item"> Dates: {props.dates}</li>
+    {/* <li className="list-group-item"> Dates: {props.dates}</li> */}
     {/* <li className="list-group-item">Lesson: {props.lessons}</li>
     <li className="list-group-item">Participants: {props.participant}</li> */}
  
