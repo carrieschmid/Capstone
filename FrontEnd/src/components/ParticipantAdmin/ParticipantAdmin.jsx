@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionList from './../SessionList/SessionList';
 import ParticipantDetail from './../ParticipantDetail/ParticipantDetail';
-import openhouse from './openhouse.jpg';
+
 
 function ParticipantAdmin(props) {
 
@@ -16,14 +16,13 @@ function ParticipantAdmin(props) {
 
  return (
   <div className="row">
-    <img src= {openhouse}/>
-    <div className = "col col-md-8">
+    <div className = "col col-md-7">
     <SessionList
     sessionList={props.sessionList}
     onSessionSelection={props.onSessionSelection}
    />
    </div>
-    <div className = "col col-md-4">
+    <div className = "col col-md-5">
    {selectedSessionContent}
    </div>
   </div>

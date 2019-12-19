@@ -69,6 +69,7 @@ function SessionForm (props){
       placeholder='Openings'
       ref={(input) => {_openings = input; }} />
     </div>
+    
     <button type='submit'>Add Session</button>
    </form>
   </div>

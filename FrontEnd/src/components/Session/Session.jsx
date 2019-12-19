@@ -18,7 +18,7 @@ function Session(props){
 
  const sessionInformation =
   <div className= "jumbotron">  
-   <h5> {props.name}</h5>
+   <h4> {props.name}</h4>
    <ul>
     <li className="list-group-item">Description: {props.description}</li>
     <li className="list-group-item">Location: {props.location}</li>

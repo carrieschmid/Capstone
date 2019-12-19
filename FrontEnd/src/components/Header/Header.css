@@ -4,8 +4,26 @@
     text-align: right
 }
 
-.Header{
-    background-color:#eee;
-    padding: 10px;
+.Image{
+    background-image: url("openhouse.jpg");
+    background-repeat: no-repeat;
+    /* background-position: 0% 0%, */
+    padding: 200px;
     margin-bottom: 50px;
+    display: block;
+    /* width:100px; */
+}
+
+.Holder{
+    /* position: relative; */
+}
+
+.Title{
+    color: white;
+    position: absolute;
+    top: 15%;
+    right: 50px;
+    
+    
+    
 }

@@ -14,11 +14,18 @@ function VolunteerDetail(props) {
 function addNewLesson(event){
   event.preventDefault();
   props.onAddingNewLesson({date:_date.value, morning: _morning.value, snack: _snack.value, afternoon: _afternoon.value});
+ _date.value = '';
+ _morning.value='';
+ _snack.value='';
+ _afternoon.value='';
  }
 
-function handleCloseDetails(){
-  props.onSessionSelection(props.sessionId);
- }
+ 
+
+
+// function handleCloseDetails(){
+//   props.onSessionSelection(props.sessionId);
+//  }
        
 
 
@@ -27,14 +34,16 @@ function handleCloseDetails(){
  //   let session = props.sessionList[props.selectedSession]; 
 
  return (
-  <div>
-  <div>
-   <h1>{props.selectedSession.name}</h1>
-   <p>Description: {props.selectedSession.description}</p>
-   <p>Dates:{props.selectedSession.dates}</p>
-   <p>Openings:{props.selectedSession.openings}</p>
+  
+  <div className= 'jumbotron'>
+   <h4>{props.selectedSession.name}</h4>
+   <h5>Description: {props.selectedSession.description}</h5>
+   <h5>Dates:{props.selectedSession.dates}</h5>
+   <h5>Openings:{props.selectedSession.openings}</h5>
+   <div>
    <p>_________________________</p>
    </div>
+
    <LessonList lessonList={props.selectedSession.lessons}/>
    
    <form onSubmit={addNewLesson}>
@@ -56,14 +65,14 @@ function handleCloseDetails(){
      <input
       id='snack'
       type='text'
-      placeholder='snack'
+      placeholder='Snack'
       ref={(input) => { _snack = input; }} />
     </div>
     <div className='input-field'>
      <input
       id='afternoon'
       type='text'
-      placeholder='afternoon'
+      placeholder='Afternoon'
       ref={(input) => { _afternoon = input; }} />
     </div>
     <button type='submit'>Add Lesson</button>

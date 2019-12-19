@@ -11,21 +11,22 @@ function ParticipantDetail(props) {
  function addNewParticipant(event){
   event.preventDefault();
   props.onAddingNewParticipant({firstName: _firstName.value, lastName: _lastName.value, id: v4()});
+
+  _firstName.value = '';
+ _lastName.value='';
  }
 
- // //  function deleteParticipant(event){
-    
- // //  }
+ 
 
   
  
   
  return (
-  <div>
-   <h1>{props.selectedSession.name}</h1>
-   <p>Description: {props.selectedSession.description}</p>
-   <p>Dates:{props.selectedSession.dates}</p>
-   <p>Openings:{props.selectedSession.openings}</p>
+  <div className="jumbotron">
+   <h4>{props.selectedSession.name}</h4>
+   <h5>Description: {props.selectedSession.description}</h5>
+   <h5>Dates:{props.selectedSession.dates}</h5>
+   <h5>Openings:{props.selectedSession.openings}</h5>
    <p>________________________</p>
    <ParticipantList participantList={props.selectedSession.participants}/>
    <form onSubmit={addNewParticipant}>

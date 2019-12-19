@@ -22,7 +22,7 @@ function VolunteerAdmin(props) {
   </div>
 
   <div className= "row">
-    <div className= "col col-md-8">
+    <div className= "col col-md-7">
       <div className ="ListWrapper">
         <SessionList
           sessionList={props.sessionList}
@@ -32,7 +32,7 @@ function VolunteerAdmin(props) {
         />
       </div>
     </div>
-    <div className= "col col-md-4">
+    <div className= "col col-md-5">
       {selectedSessionContent}
     </div>
   </div>
