@@ -7,21 +7,21 @@ function SessionForm (props){
  let _name = null;
  let _description = null;
  let _location = null;
- let _dates = null;
+//  let _dates = null;
  let _openings = null;
 
 
  function handleSessionSubmit(event) {
   event.preventDefault();
   console.log('gothere');
-  props.onSessionSubmit({ name: _name.value, description: _description.value, location: _location.value, dates: _dates.value, openings: _openings.value, lessons: [], participants: [],  
+  props.onSessionSubmit({ name: _name.value, description: _description.value, location: _location.value,  openings: _openings.value, lessons: [], participants: [],  
    // newUserId: props 
   });
 
   _name.value = '';
   _description.value = '';
   _location.value = '';
-  _dates.value = '';
+  // _dates.value = '';
   _openings.value = '';
   
     

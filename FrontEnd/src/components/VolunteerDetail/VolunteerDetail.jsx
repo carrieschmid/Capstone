@@ -37,9 +37,9 @@ function addNewLesson(event){
   
   <div className= 'jumbotron'>
    <h4>{props.selectedSession.name}</h4>
-   <h5>Name: {props.selectedSession.description}</h5>
-   <h5>Location:{props.selectedSession.dates}</h5>
-   <h5>Openings:{props.selectedSession.openings}</h5>
+   <h5>Description: {props.selectedSession.description}</h5>
+   {/* <h5>Dates:{props.selectedSession.dates}</h5>
+   <h5>Openings:{props.selectedSession.openings}</h5> */}
    <div>
    <p>_________________________</p>
    </div>
