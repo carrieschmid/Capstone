@@ -1,3 +1,36 @@
+import React from 'react';
+
+class Lesson extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+     formVisibleOnPage: false
+    };
+    this.handleConfirmation = this.handleConfirmation.bind(this);
+   }
+  
+   handleConfirmation(){
+    this.setState({formVisibleOnPage: true});
+   }
+
+   render(){
+    let currentlyVisibleContent = null;
+    if (this.state.formVisibleOnPage){
+     currentlyVisibleContent = <AddLesson onAddLesson={this.props.onAddNewLesson} onCloseLesson={this.props.onCloseLesson}/>;
+    } else {
+     currentlyVisibleContent = <ConfirmationQuestion onConfirmation={this.handleConfirmation}/>;
+     console.log(this.state);
+     //here's where we pass the prop onConfirmation into ConfirmationQuestions
+    }
+    return (
+     <div>
+      {currentlyVisibleContent}
+     </div>
+    );
+   }
+
+
+
 // import React from 'react';
 // import VolunteerAdmin from './VolunteerAdmin';
 // import ParticipantAdmin from './ParticipantAdmin';
