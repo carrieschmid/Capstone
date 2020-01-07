@@ -20,6 +20,7 @@ function ParticipantAdmin(props) {
     <SessionList
     sessionList={props.sessionList}
     onSessionSelection={props.onSessionSelection}
+    onCloseDetails={props.onCloseDetails}
    />
    </div>
     <div className = "col col-md-5">

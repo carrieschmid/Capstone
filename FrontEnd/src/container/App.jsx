@@ -43,6 +43,7 @@ class App extends React.Component {
   this.handleAddingNewLesson = this.handleAddingNewLesson.bind(this);
   this.handleAddingNewParticipant=this.handleAddingNewParticipant.bind(this);
   this.handleClosingDetails= this.handleClosingDetails.bind(this);
+  // this.getVolunteerSessionList=this.getVolunteerSessionList.bind(this);
   // this.handleAddingNewSessionToState = this.handleAddingNewSessionToState.bind(this);
  }
 
@@ -73,21 +74,20 @@ class App extends React.Component {
   // console.log(this.getSessionList());
  }
 
- getSessionList(){
-  let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser);
-  console.log(this.state.currentUser);
-  // this.state.token
-  dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
+//  getVolunteerSessionList(){
+//   let dataPromise= this.apiHelper.apiGetVolunteerSessions(this.state.currentUser);
+//   console.log(this.state.currentUser);
+//   // this.state.token
+//   dataPromise.then((response)=>{ let JSONresponse = JSON.parse(response);
     
-   for (let i = 0; i < JSONresponse.length; i++){
-    this.handleAddingNewSessionFromApi(JSONresponse[i]);
-    console.log(JSONresponse[i]);
-   }
-  // 
-  
-  
-  });
- }
+//    for (let i = 0; i < JSONresponse.length; i++){
+//     this.handleAddingNewSessionFromApi(JSONresponse[i]);
+//     console.log(JSONresponse[i]);
+//    }
+//   });
+//  }
+
+
  handleAddingNewSessionFromApi(newSession) {
   var sessionId = v4();
   var newMasterSessionList = Object.assign({}, this.state.masterSessionList, {
@@ -95,9 +95,7 @@ class App extends React.Component {
   });
   this.setState({ masterSessionList: newMasterSessionList });
   // this.apiPostNewProject(newProject); 
-  console.log('--------', newSession);
-    
-    
+  console.log('--------', newSession);   
  }
   
  
@@ -161,6 +159,7 @@ class App extends React.Component {
       <Route exact path='/' render={() => <ParticipantAdmin sessionList={this.state.masterSessionList}
        selectedSession={this.state.selectedSession}
        onSessionSelection={this.handleChangingSelectedSession}
+       onCloseDetails={this.handleClosingDetails}
        onAddingNewParticipant= {this.handleAddingNewParticipant}
       />} 
       />

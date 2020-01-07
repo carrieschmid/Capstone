@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchedulerAPI.Models;
 
 namespace SchedulerAPI.Migrations
 {
     [DbContext(typeof(SchedulerAPIContext))]
-    partial class SchedulerAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20200106223612_NewOne")]
+    partial class NewOne
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

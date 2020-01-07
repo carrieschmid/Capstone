@@ -53,6 +53,24 @@ export default class ApiHelper {
     
  }
 
+//  apiGetAllSessions() {
+//     return new Promise(function (resolve, reject) {
+//      let url = `http://localhost:5000/api/Session/get-session`;  
+//      let request = new XMLHttpRequest();
+//      console.log(request);
+//      request.onload = function () {
+//       if (this.status === 200) {
+//        resolve(request.response);
+//       } else {
+//        reject(Error(request.statusText));
+//       }
+//      };
+//      console.log(request);
+//      request.open('GET', url, true);
+//      request.send();
+//     });
+//    }   
+
    
  apiGetVolunteerSessions(volunteer) {
   return new Promise(function (resolve, reject) {
