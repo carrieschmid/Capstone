@@ -10,7 +10,6 @@ function Lesson(props){
    <p>Snack: {props.snack}</p>
    <p>Afternoon: {props.afternoon}</p>
    <p>_______________________</p>
-   {/* <button onClick={closeDetails}>Close Lesson</button> */}
   </div>  
   
  );
