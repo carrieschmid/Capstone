@@ -13,10 +13,6 @@ function LessonList(props) {
      afternoon={thisLesson.afternoon}
      key={index} 
     />
-
-    // <p>Morning: {props.morning}</p> 
-    // <p>Snack: {props.snack}</p>
-    // <p>Afternoon: {props.afternoon}</p>  
    )}
   </div>
  );

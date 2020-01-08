@@ -10,6 +10,7 @@ import { v4 } from 'uuid';
 import { cloneDeep } from 'lodash';
 import LoginForm from './../components/LoginForm/LoginForm';
 import VolunteerAdmin from './../components/VolunteerAdmin/VolunteerAdmin';
+// import NewLessonControl from './../components/NewLessonControl/NewLessonControl'
 import ParticipantAdmin from './../components/ParticipantAdmin/ParticipantAdmin';
 import AddAcct from './../components/AddAcct/AddAcct';
 
@@ -122,6 +123,9 @@ class App extends React.Component {
   this.setState({selectedSession: null});
  }
 
+ handleClosingDetails(){
+  this.setState({selectedSession: null});
+ }
  //  toggleVisibility(){
  //   if (this.state.visibility=true){
  //    this.setState = ({ visibility: false});
@@ -176,6 +180,8 @@ class App extends React.Component {
         // currentRouterPath={props.location.pathname}
       
        /> } />
+       <Route path='/newLesson' render={()=><NewLessonControl onAddNewLesson={this.handleAddingNewLesson} onCloseLesson={this.handleClosingLesson}/>} 
+     />
       
       <Route exact path='/add-acct' render={() =>  
        <AddAcct onCreateAcct={this.handleCreateAcct} />} />   
